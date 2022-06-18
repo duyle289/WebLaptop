@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using WebBanlaptop.Models
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -37,58 +38,34 @@
                     <a class="text-body mr-3" href="">FAQs</a>
                 </div>
             </div>
-            @if (Session["User"] == null)
-            {
-                <div class="col-lg-6 text-center text-lg-right">
-                    <div class="d-inline-flex align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Tài khoản</button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <button onclick="location.href='@Url.Action("Login", "User",new { strURL = Request.Url.ToString()})'" class="dropdown-item" type="button">Đăng nhập</button>
-                                <button onclick="location.href='@Url.Action("MyAction", "MyController")'" class="dropdown-item" type="button">Đăng ký</button>
-                            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    @if (Session["TaiKhoan"] != null && Session["TaiKhoan"] != "")
+                    {
+                        KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+                        <span> Chào @kh.TENKH</span>
+                        @Html.ActionLink("Đăng Xuất","Index","Home")
+                    }
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Tài khoản</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button"onclick="location.href='@Url.Action("Login", "User")'">Đăng nhập</button>
+                            <button class="dropdown-item" type="button" onclick="location.href='@Url.Action("DangKy", "User")'" >Đăng ký</button>
                         </div>
+                    </div>
 
-                    </div>
-                    <div class="d-inline-flex align-items-center d-block d-lg-none">
-                        <a href="" class="btn px-0 ml-2">
-                            <i class="fas fa-heart text-dark"></i>
-                            <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
-                        </a>
-                        <a href="" class="btn px-0 ml-2">
-                            <i class="fas fa-shopping-cart text-dark"></i>
-                            <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
-                        </a>
-                    </div>
                 </div>
-            }
-            else
-            {
-                <div class="col-lg-6 text-center text-lg-right">
-                    <div class="d-inline-flex align-items-center">
-                        <div class="btn-group">
-                            @Html.Action("showUser", "Home")
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <button onclick="location.href='@Url.Action("MyAction", "MyController")'" class="dropdown-item" type="button">Hồ sơ của tôi</button>
-                                <button onclick="location.href='@Url.Action("MyAction", "MyController")'" class="dropdown-item" type="button">Đổi mật khẩu</button>
-                                <button onclick="location.href='@Url.Action("LogOut", "User")'" class="dropdown-item" type="button">Đăng xuất</button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="d-inline-flex align-items-center d-block d-lg-none">
-                        <a href="" class="btn px-0 ml-2">
-                            <i class="fas fa-heart text-dark"></i>
-                            <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
-                        </a>
-                        <a href="" class="btn px-0 ml-2">
-                            <i class="fas fa-shopping-cart text-dark"></i>
-                            <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
-                        </a>
-                    </div>
+                <div class="d-inline-flex align-items-center d-block d-lg-none">
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-heart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                    </a>
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-shopping-cart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                    </a>
                 </div>
-            }
-
+            </div>
         </div>
         <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
             <div class="col-lg-4">

@@ -47,30 +47,47 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CaptchaMvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=fe46ad421dd3b0e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CaptchaMvc.Mvc5.1.5.0\lib\net45-full\CaptchaMvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -195,18 +212,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\._main.css" />
+    <Content Include="Content\css\._main.min.css" />
+    <Content Include="Content\css\._util.css" />
     <Content Include="Content\css\bootstrap-grid.css" />
     <Content Include="Content\css\bootstrap-grid.min.css" />
     <Content Include="Content\css\bootstrap-reboot.css" />
     <Content Include="Content\css\bootstrap-reboot.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\main.min.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\style.min.css" />
+    <Content Include="Content\css\util.css" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\css\._font-awesome.css" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\css\._font-awesome.min.css" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\._fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\montserrat\._OFL.txt" />
+    <Content Include="Content\fonts\montserrat\OFL.txt" />
     <Content Include="Content\HinhAnhSP\acer-aprise-a315-57g-32qp-i3.jpg" />
     <Content Include="Content\HinhAnhSP\acer-aspire-3-a315-57g-573f-i5.jpg" />
     <Content Include="Content\HinhAnhSP\acer-aspire-7-gaming-a715-42g-r05g-r5.jpg" />
@@ -322,6 +352,65 @@
     <Content Include="Content\HinhAnhSP\msi-modern-15-a11mu-i5.jpg" />
     <Content Include="Content\HinhAnhSP\msi-modern-15-a5m-r5.jpg" />
     <Content Include="Content\HinhAnhSP\msi-prestige-14-a11sc-i7.jpg" />
+    <Content Include="Content\images\icons\._favicon.ico" />
+    <Content Include="Content\images\icons\favicon.ico" />
+    <Content Include="Content\images\img-01.png" />
+    <Content Include="Content\js\global.js" />
+    <Content Include="Content\vendor\animate\._animate.css" />
+    <Content Include="Content\vendor\animate\animate.css" />
+    <Content Include="Content\vendor\bootstrap\css\._bootstrap-grid.css" />
+    <Content Include="Content\vendor\bootstrap\css\._bootstrap-grid.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\._bootstrap-reboot.css" />
+    <Content Include="Content\vendor\bootstrap\css\._bootstrap-reboot.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\._bootstrap.css" />
+    <Content Include="Content\vendor\bootstrap\css\._bootstrap.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\vendor\bootstrap\js\._bootstrap.min.js" />
+    <Content Include="Content\vendor\bootstrap\js\._popper.min.js" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\vendor\bootstrap\js\popper.js" />
+    <Content Include="Content\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Content\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Content\vendor\css-hamburgers\._hamburgers.css" />
+    <Content Include="Content\vendor\css-hamburgers\._hamburgers.min.css" />
+    <Content Include="Content\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Content\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Content\vendor\datepicker\._daterangepicker.css" />
+    <Content Include="Content\vendor\datepicker\._moment.min.js" />
+    <Content Include="Content\vendor\datepicker\daterangepicker.css" />
+    <Content Include="Content\vendor\datepicker\daterangepicker.js" />
+    <Content Include="Content\vendor\datepicker\moment.min.js" />
+    <Content Include="Content\vendor\font-awesome-4.7\css\._font-awesome.css" />
+    <Content Include="Content\vendor\font-awesome-4.7\css\._font-awesome.min.css" />
+    <Content Include="Content\vendor\font-awesome-4.7\css\font-awesome.css" />
+    <Content Include="Content\vendor\font-awesome-4.7\css\font-awesome.min.css" />
+    <Content Include="Content\vendor\font-awesome-4.7\fonts\._fontawesome-webfont.svg" />
+    <Content Include="Content\vendor\font-awesome-4.7\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\vendor\jquery\._jquery-3.2.1.min.js" />
+    <Content Include="Content\vendor\jquery\._jquery.js" />
+    <Content Include="Content\vendor\jquery\._jquery.min.js" />
+    <Content Include="Content\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Content\vendor\jquery\jquery.js" />
+    <Content Include="Content\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\vendor\mdi-font\css\._material-design-iconic-font.css" />
+    <Content Include="Content\vendor\mdi-font\css\._material-design-iconic-font.min.css" />
+    <Content Include="Content\vendor\mdi-font\css\material-design-iconic-font.css" />
+    <Content Include="Content\vendor\mdi-font\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\vendor\mdi-font\fonts\._Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\vendor\mdi-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\vendor\select2\._select2.css" />
+    <Content Include="Content\vendor\select2\._select2.min.css" />
+    <Content Include="Content\vendor\select2\._select2.min.js" />
+    <Content Include="Content\vendor\select2\select2.css" />
+    <Content Include="Content\vendor\select2\select2.js" />
+    <Content Include="Content\vendor\select2\select2.min.css" />
+    <Content Include="Content\vendor\select2\select2.min.js" />
     <Content Include="Content\img\carousel-1.jpg" />
     <Content Include="Content\img\carousel-2.jpg" />
     <Content Include="Content\img\carousel-3.jpg" />
@@ -368,36 +457,8 @@
     <Content Include="Content\mail\contact.js" />
     <Content Include="Content\mail\contact.php" />
     <Content Include="Content\mail\jqBootstrapValidation.min.js" />
-    <Content Include="Content\styleLogin\css\main.css" />
-    <Content Include="Content\styleLogin\css\util.css" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\css\font-awesome.css" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
-    <Content Include="Content\styleLogin\fonts\montserrat\OFL.txt" />
-    <Content Include="Content\styleLogin\images\icons\favicon.ico" />
-    <Content Include="Content\styleLogin\images\img-01.png" />
-    <Content Include="Content\styleLogin\js\main.js" />
-    <Content Include="Content\styleLogin\vendor\animate\animate.css" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\css\bootstrap-grid.css" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\css\bootstrap-grid.min.css" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\css\bootstrap-reboot.css" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\css\bootstrap-reboot.min.css" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\css\bootstrap.css" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\css\bootstrap.min.css" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\js\bootstrap.js" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\js\popper.js" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\js\popper.min.js" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\js\tooltip.js" />
-    <Content Include="Content\styleLogin\vendor\css-hamburgers\hamburgers.css" />
-    <Content Include="Content\styleLogin\vendor\css-hamburgers\hamburgers.min.css" />
-    <Content Include="Content\styleLogin\vendor\jquery\jquery-3.2.1.min.js" />
-    <Content Include="Content\styleLogin\vendor\select2\select2.css" />
-    <Content Include="Content\styleLogin\vendor\select2\select2.js" />
-    <Content Include="Content\styleLogin\vendor\select2\select2.min.css" />
-    <Content Include="Content\styleLogin\vendor\select2\select2.min.js" />
-    <Content Include="Content\styleLogin\vendor\tilt\tilt.jquery.min.js" />
+    <Content Include="Content\vendor\tilt\._tilt.jquery.min.js" />
+    <Content Include="Content\vendor\tilt\tilt.jquery.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -513,81 +574,174 @@
     <Content Include="Models\QLBanLaptopModel.edmx.diagram">
       <DependentUpon>QLBanLaptopModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\animated.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\core.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\fixed-width.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\font-awesome.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\icons.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\larger.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\list.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\mixins.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\path.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\screen-reader.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\stacked.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\less\variables.less" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_animated.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_core.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_icons.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_larger.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_list.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_path.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
-    <Content Include="Content\styleLogin\fonts\font-awesome-4.7.0\scss\_variables.scss" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-Black.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-BlackItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-Bold.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-BoldItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-ExtraBold.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-ExtraLight.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-Italic.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-Light.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-LightItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-Medium.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-MediumItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-Regular.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-SemiBold.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-Thin.ttf" />
-    <Content Include="Content\styleLogin\fonts\montserrat\Montserrat-ThinItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-Black.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-BlackItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-Bold.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-BoldItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-ExtraBold.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-ExtraLight.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-Italic.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-Light.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-LightItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-Medium.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-MediumItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-Regular.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-SemiBold.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-Thin.ttf" />
-    <Content Include="Content\styleLogin\fonts\poppins\Poppins-ThinItalic.ttf" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\css\bootstrap-grid.css.map" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\css\bootstrap-reboot.css.map" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\css\bootstrap.css.map" />
-    <Content Include="Content\styleLogin\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\vendor\font-awesome-4.7\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\vendor\font-awesome-4.7\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\vendor\font-awesome-4.7\fonts\FontAwesome.otf" />
+    <Content Include="Content\vendor\mdi-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\vendor\mdi-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="Content\fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Content\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\._bootstrap-grid.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\._bootstrap-grid.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\._bootstrap-reboot.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\._bootstrap-reboot.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\._bootstrap.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\._bootstrap.min.css.map" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\._fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\._fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\._fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\._fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\fonts\._FontAwesome.otf" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._animated.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._bordered-pulled.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._core.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._fixed-width.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._font-awesome.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._icons.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._larger.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._list.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._mixins.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._path.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._rotated-flipped.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._screen-reader.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._stacked.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\less\._variables.less" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\._font-awesome.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__animated.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__bordered-pulled.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__core.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__fixed-width.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__icons.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__larger.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__list.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__mixins.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__path.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__rotated-flipped.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__screen-reader.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__stacked.scss" />
+    <Content Include="Content\fonts\font-awesome-4.7.0\scss\.__variables.scss" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-Black.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-BlackItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-Bold.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-BoldItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-ExtraBold.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-ExtraLight.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-Italic.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-Light.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-LightItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-Medium.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-MediumItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-Regular.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-SemiBold.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-Thin.ttf" />
+    <Content Include="Content\fonts\montserrat\._Montserrat-ThinItalic.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-Black.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-BlackItalic.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-Bold.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-BoldItalic.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-ExtraBold.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-ExtraLight.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-Italic.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-Light.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-LightItalic.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-Medium.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-MediumItalic.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-Regular.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-SemiBold.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-Thin.ttf" />
+    <Content Include="Content\fonts\poppins\._Poppins-ThinItalic.ttf" />
+    <Content Include="Content\vendor\font-awesome-4.7\fonts\._fontawesome-webfont.eot" />
+    <Content Include="Content\vendor\font-awesome-4.7\fonts\._fontawesome-webfont.ttf" />
+    <Content Include="Content\vendor\font-awesome-4.7\fonts\._fontawesome-webfont.woff" />
+    <Content Include="Content\vendor\font-awesome-4.7\fonts\._fontawesome-webfont.woff2" />
+    <Content Include="Content\vendor\font-awesome-4.7\fonts\._FontAwesome.otf" />
+    <Content Include="Content\vendor\mdi-font\fonts\._Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\vendor\mdi-font\fonts\._Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\vendor\mdi-font\fonts\._Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\vendor\mdi-font\fonts\._Material-Design-Iconic-Font.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -617,10 +771,8 @@
     <Content Include="Views\SanPham\showSPPartial.cshtml" />
     <Content Include="Views\SanPham\showAllSP.cshtml" />
     <Content Include="Views\SanPham\chiTietSP.cshtml" />
+    <Content Include="Views\User\DangKy.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\Home\showUser.cshtml" />
-    <Content Include="Views\SanPham\showmauSP.cshtml" />
-    <Content Include="Views\SanPham\SapXep.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

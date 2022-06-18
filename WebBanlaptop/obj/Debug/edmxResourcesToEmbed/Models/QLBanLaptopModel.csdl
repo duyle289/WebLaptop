@@ -61,12 +61,13 @@
     <Property Name="TENKH" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
     <Property Name="DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="USERNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
     <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="BINHLUAN" Relationship="Self.FK_BINHLUAN_KHACHHANG" FromRole="KHACHHANG" ToRole="BINHLUAN" />
     <NavigationProperty Name="HOADON" Relationship="Self.FK_HOADON_KHACHHANG" FromRole="KHACHHANG" ToRole="HOADON" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="LOAISANPHAM">
     <Key>
