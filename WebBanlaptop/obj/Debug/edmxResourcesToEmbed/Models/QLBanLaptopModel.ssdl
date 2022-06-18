@@ -15,7 +15,7 @@
       <PropertyRef Name="MAMAU" />
     </Key>
     <Property Name="MASP" Type="int" Nullable="false" />
-    <Property Name="MAMAU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAMAU" Type="int" Nullable="false" />
     <Property Name="SOLUONGTON" Type="int" />
   </EntityType>
   <EntityType Name="CHITIETHD">
@@ -51,10 +51,11 @@
     <Property Name="TENKH" Type="nvarchar" MaxLength="35" />
     <Property Name="DIACHI" Type="nvarchar" MaxLength="250" />
     <Property Name="USERNAME" Type="varchar" MaxLength="20" />
-    <Property Name="PASSWORD" Type="varchar" MaxLength="20" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="40" />
     <Property Name="SDT" Type="nchar" MaxLength="10" />
     <Property Name="CCCD" Type="nchar" MaxLength="12" />
     <Property Name="EMAIL" Type="nchar" MaxLength="30" />
+    <Property Name="NGAYSINH" Type="date" />
   </EntityType>
   <EntityType Name="LOAISANPHAM">
     <Key>
