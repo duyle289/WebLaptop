@@ -15,18 +15,22 @@
                         if (groupItem.Key != null)
                         {
                             <div class="nav-item dropdown dropright">
+
                                 <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">@groupItem.Key.TENLOAISP <i class="fa fa-angle-right float-right mt-1"></i></a>
-                                @foreach (var item in groupItem.GroupBy(n => n.NHASANXUAT))
-                                {
-                                    if (item.Key != null)
+                                <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
+                                    @foreach (var item in groupItem.GroupBy(n => n.NHASANXUAT))
                                     {
-                                        <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
+                                        if (item.Key != null)
+                                        {
+
                                             <a href="@Url.Action("showSPTheoNSX","SanPham",new {@MaLSP = groupItem.Key.MALSP, @MaNXS = item.Key.MANSX})" class="dropdown-item">@item.Key.TENNSX</a>
-                                        </div>
+
+                                        }
                                     }
-                                }
-                            </div>
-                        }
+                                </div>
+
+
+                            </div>}
                     }
                 </div>
             </nav>

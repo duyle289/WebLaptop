@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
-using WebBanlaptop.Models;
-using System.ComponentModel.DataAnnotations;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
-using System.Net.Mail;
-using System.Net;
-
+using System.Web;
+using System.Web.Mvc;
+using WebBanlaptop.Models;
 namespace WebBanlaptop.Controllers
 {
-    public class UserController : Controller 
+    public class UserController : Controller
     {
-        QLBANLAPTOPEntities db = new QLBANLAPTOPEntities();
+        private static string urlAfterLogin; // lưu lại link đang ở trước khi nhấn đăng nhập
+        #region MD5
         public static string MD5Hash(string input)
         {
             StringBuilder hash = new StringBuilder();
@@ -26,6 +26,7 @@ namespace WebBanlaptop.Controllers
             }
             return hash.ToString();
         }
+        #endregion
         #region sendmail
         public static void sendmail(string address, string subject, string message)
         {
@@ -54,7 +55,7 @@ namespace WebBanlaptop.Controllers
             }
         }
         #endregion
-        // GET: User
+        #region đăng ký
         [HttpGet]
         public ActionResult DangKy()
         {
@@ -76,8 +77,8 @@ namespace WebBanlaptop.Controllers
                 {
                     ModelState.AddModelError("USERNAME", "Tên tài khoản đã tồn tại");
                     return View(kh);
-                }    
-                if(emailexist)
+                }
+                if (emailexist)
                 {
                     ModelState.AddModelError("EMAIL", "Email đã được đăng ký mời nhập emmil khác");
                     return View(kh);
@@ -92,14 +93,14 @@ namespace WebBanlaptop.Controllers
                     ModelState.AddModelError("CCCD", "CCCD đã được đăng ký mời nhập CCCD khác");
                     return View(kh);
                 }
-                if(kh.SDT.Length != 10)
+                if (kh.SDT.Length != 10)
                 {
                     ModelState.AddModelError("SDT", "Phải nhập đủ 10 số");
-                }    
-                if(kh.CCCD.Length != 9 && kh.CCCD.Length != 12)
+                }
+                if (kh.CCCD.Length != 9 && kh.CCCD.Length != 12)
                 {
                     ModelState.AddModelError("CCCD", "CCCD hoặc là 9 số hoặc là 12 số");
-                }    
+                }
                 else
                 {
                     string mk = f["PASSWORD"].ToString();
@@ -113,19 +114,20 @@ namespace WebBanlaptop.Controllers
                         kh.PASSWORD = pass;
                         db.KHACHHANG.Add(kh);
                         db.SaveChanges();
-                       return RedirectToAction("Login");
+                        return RedirectToAction("Login");
                     }
                     else
                     {
                         ViewBag.thongbao = "mật khẩu không trung khớp !!!!!!";
                         return View();
-                    }  
+                    }
                 }
             }
             return View();
         }
+        #endregion
+        QLBANLAPTOPEntities db = new QLBANLAPTOPEntities();
 
-        private static string urlAfterLogin; // lưu lại link đang ở trước khi nhấn đăng nhập
         #region đăng nhập
         [HttpGet]
         public ActionResult Login(string strURL)
@@ -146,7 +148,7 @@ namespace WebBanlaptop.Controllers
         public ActionResult Login(FormCollection collection)
         {
             var username = collection["username"];
-            var password = collection["Password"];
+            var password = collection["password"];
             var user = db.KHACHHANG.SingleOrDefault(p => p.USERNAME == username);
             if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
             {
@@ -158,7 +160,7 @@ namespace WebBanlaptop.Controllers
                 ViewData["Error"] = "invalid username";
                 return this.Login(urlAfterLogin);
             }
-            else if (!String.Equals(password, user.PASSWORD))
+            else if (!String.Equals(MD5Hash(password), user.PASSWORD))
             {
                 ViewData["Error"] = "invalid password";
                 return this.Login(urlAfterLogin);
@@ -178,5 +180,6 @@ namespace WebBanlaptop.Controllers
             return RedirectToAction("Index", "Home");
         }
         #endregion
+
     }
 }

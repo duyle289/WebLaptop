@@ -23,6 +23,10 @@ namespace WebBanlaptop.Controllers
             var lstSP = db.SANPHAM;
             return PartialView(lstSP);
         }
+        public ActionResult showUser()
+        {
+            return PartialView();
+        }
 
     }
 }
