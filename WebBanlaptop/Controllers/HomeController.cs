@@ -27,6 +27,20 @@ namespace WebBanlaptop.Controllers
         {
             return PartialView();
         }
+        #region Tìm kiếm sản phẩm
+        [HttpPost]
+        public ActionResult KQTimKiem(string TuKhoa)
+        {
+            var listSP = db.SANPHAM.Where(n => n.TENSP.Contains(TuKhoa));
+            int i = listSP.Count();
+            if (i == 0)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.lstSP = listSP.OrderBy(n => n.TENSP).ToList();
+            return View();
+        }
+        #endregion
 
     }
 }
