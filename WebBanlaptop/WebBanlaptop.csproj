@@ -622,6 +622,7 @@
     <Content Include="Views\SanPham\showmauSP.cshtml" />
     <Content Include="Views\SanPham\SapXep.cshtml" />
     <Content Include="Views\User\DangKy.cshtml" />
+    <Content Include="Views\Home\KQTimKiem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
