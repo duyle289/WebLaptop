@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -12,6 +13,7 @@ namespace WebBanlaptop.Controllers
 {
     public class UserController : Controller
     {
+        QLBANLAPTOPEntities db = new QLBANLAPTOPEntities();
         private static string urlAfterLogin; // lưu lại link đang ở trước khi nhấn đăng nhập
         #region MD5
         public static string MD5Hash(string input)
@@ -30,31 +32,34 @@ namespace WebBanlaptop.Controllers
         #region sendmail
         public static void sendmail(string address, string subject, string message)
         {
-            string email = "kocomomatim@gmail.com";
-            var senderEmail = new MailAddress(email, "MutiShop(tin nhắn tự động)");
-            var receiverEmail = new MailAddress(address, "Receiver");
-            var password = "Viet@2812";
-            var sub = subject;
-            var body = message;
-            var smtp = new SmtpClient
+            if (new EmailAddressAttribute().IsValid(address)) // check có đúng mail khách hàng
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(senderEmail.Address, password)
-            };
-            using (var mess = new MailMessage(senderEmail, receiverEmail)
-            {
-                Subject = sub,
-                Body = body
-            })
-            {
-                smtp.Send(mess);
+                string email = "multishoplaptop@gmail.com";
+                var senderEmail = new MailAddress(email, "MultiShop(tin nhắn tự động)");
+                var receiverEmail = new MailAddress(address, "Receiver");
+                var password = "iqccwrlhzopkkoup";
+                var sub = subject;
+                var body = message;
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(senderEmail.Address, password)
+                };
+                using (var mess = new MailMessage(senderEmail, receiverEmail)
+                {
+                    Subject = sub,
+                    Body = body
+                })
+                    smtp.Send(mess);
+
             }
         }
         #endregion
+
         #region đăng ký
         [HttpGet]
         public ActionResult DangKy()
@@ -126,8 +131,81 @@ namespace WebBanlaptop.Controllers
             return View();
         }
         #endregion
-        QLBANLAPTOPEntities db = new QLBANLAPTOPEntities();
 
+        #region quên mật khẩu
+
+        public ActionResult XacNhanGoiMK()
+        {
+            return PartialView();
+        }
+        [HttpGet]
+        public ActionResult QuenMK()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult QuenMK(FormCollection f)
+        {
+            var email = f["EMAIL"].ToString();
+            KHACHHANG kh = db.KHACHHANG.FirstOrDefault(n => n.EMAIL == email);
+            var checkEmail = db.KHACHHANG.Any(n => n.EMAIL == email);
+            if (ModelState.IsValid)
+            {
+                if (!checkEmail)
+                {
+                    ModelState.AddModelError("EMAIL", "Email không tồn tại");
+                    return View();
+                }
+                else
+                {
+                    string pass = RandomChar();
+                    kh.PASSWORD = MD5Hash(pass);
+                    try
+                    {
+                        db.SaveChanges();
+                        string subject = "Mật khẩu đăng nhập mới";
+                        string message = "Đây là mail gởi từ website MultiShop \n Mật khẩu đăng nhập mới của bạn là: " + pass + "\n Sau khi đăng nhập thành công bạn nên thay đổi mật khẩu để tiện cho lần đăng nhập kế tiếp <3";
+                        sendmail(email, subject, message);
+                    }
+                    catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                    {
+                        Exception raise = dbEx;
+                        foreach (var validationErrors in dbEx.EntityValidationErrors)
+                        {
+                            foreach (var validationError in validationErrors.ValidationErrors)
+                            {
+                                string message = string.Format("{0}:{1}",
+                                    validationErrors.Entry.Entity.ToString(),
+                                    validationError.ErrorMessage);
+                                // raise a new exception nesting  
+                                // the current instance as InnerException  
+                                raise = new InvalidOperationException(message, raise);
+                            }
+                        }
+                        throw raise;
+                    }
+
+                    return RedirectToAction("XacNhanGoiMK");
+                }
+            }
+            return View();
+        }
+        public static string RandomChar()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[8];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            var finalString = new String(stringChars);
+            return finalString;
+        }
+        #endregion
         #region đăng nhập
         [HttpGet]
         public ActionResult Login(string strURL)

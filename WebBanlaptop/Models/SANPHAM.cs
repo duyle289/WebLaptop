@@ -25,7 +25,7 @@ namespace WebBanlaptop.Models
         public string TENSP { get; set; }
         public Nullable<decimal> DONGIA { get; set; }
         public string HINHANH { get; set; }
-        public Nullable<bool> TRANGTHAI { get; set; }
+        public bool TRANGTHAI { get; set; }
         public Nullable<int> MALSP { get; set; }
         public Nullable<int> MANSX { get; set; }
         public Nullable<bool> SANPHAMMOI { get; set; }
