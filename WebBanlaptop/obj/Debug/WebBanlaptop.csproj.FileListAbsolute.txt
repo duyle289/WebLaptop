@@ -366,3 +366,7 @@ C:\Users\duyle\OneDrive\Máy tính\WebLaptop\WebBanlaptop\bin\PagedList.dll
 C:\Users\duyle\OneDrive\Máy tính\WebLaptop\WebBanlaptop\bin\PagedList.Mvc.dll
 C:\Users\duyle\OneDrive\Máy tính\WebLaptop\WebBanlaptop\bin\PagedList.xml
 C:\Users\duyle\OneDrive\Máy tính\WebLaptop\WebBanlaptop\bin\PagedList.Mvc.xml
+C:\Users\Admin\Desktop\WebLaptop\WebBanlaptop\bin\PagedList.dll
+C:\Users\Admin\Desktop\WebLaptop\WebBanlaptop\bin\PagedList.Mvc.dll
+C:\Users\Admin\Desktop\WebLaptop\WebBanlaptop\bin\PagedList.xml
+C:\Users\Admin\Desktop\WebLaptop\WebBanlaptop\bin\PagedList.Mvc.xml
