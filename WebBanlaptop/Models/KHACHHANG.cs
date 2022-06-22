@@ -29,8 +29,9 @@ namespace WebBanlaptop.Models
         public string SDT { get; set; }
         public string CCCD { get; set; }
         public string EMAIL { get; set; }
-        public Nullable<System.DateTime> NGAYSINH { get; set;}
-
+        public Nullable<System.DateTime> NGAYSINH { get; set; }
+        public bool TRANGTHAI { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BINHLUAN> BINHLUAN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

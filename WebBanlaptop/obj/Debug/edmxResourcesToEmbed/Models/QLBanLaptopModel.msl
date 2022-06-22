@@ -48,6 +48,8 @@
     <EntitySetMapping Name="KHACHHANG">
       <EntityTypeMapping TypeName="QLBANLAPTOPModel.KHACHHANG">
         <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+          <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
           <ScalarProperty Name="MAKH" ColumnName="MAKH" />
           <ScalarProperty Name="TENKH" ColumnName="TENKH" />
           <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
@@ -81,6 +83,8 @@
     <EntitySetMapping Name="NHANVIEN">
       <EntityTypeMapping TypeName="QLBANLAPTOPModel.NHANVIEN">
         <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="BIGBOSS" ColumnName="BIGBOSS" />
+          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
           <ScalarProperty Name="MANV" ColumnName="MANV" />
           <ScalarProperty Name="TENNV" ColumnName="TENNV" />
           <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />

@@ -10,7 +10,7 @@
             <PropertyRef Name="MABL" />
           </Key>
           <Property Name="MABL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOIDUNG" Type="nvarchar" MaxLength="350" />
+          <Property Name="NOIDUNG" Type="nvarchar" MaxLength="250" />
           <Property Name="MAKH" Type="int" />
           <Property Name="MASP" Type="int" />
         </EntityType>
@@ -20,7 +20,7 @@
             <PropertyRef Name="MAMAU" />
           </Key>
           <Property Name="MASP" Type="int" Nullable="false" />
-          <Property Name="MAMAU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAMAU" Type="int" Nullable="false" />
           <Property Name="SOLUONGTON" Type="int" />
         </EntityType>
         <EntityType Name="CHITIETHD">
@@ -56,10 +56,12 @@
           <Property Name="TENKH" Type="nvarchar" MaxLength="35" />
           <Property Name="DIACHI" Type="nvarchar" MaxLength="250" />
           <Property Name="USERNAME" Type="varchar" MaxLength="20" />
-          <Property Name="PASSWORD" Type="varchar" MaxLength="20" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="40" />
           <Property Name="SDT" Type="nchar" MaxLength="10" />
           <Property Name="CCCD" Type="nchar" MaxLength="12" />
           <Property Name="EMAIL" Type="nchar" MaxLength="30" />
+          <Property Name="NGAYSINH" Type="datetime" />
+          <Property Name="TRANGTHAI" Type="bit" />
         </EntityType>
         <EntityType Name="LOAISANPHAM">
           <Key>
@@ -68,7 +70,7 @@
           <Property Name="MALSP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENLOAISP" Type="nvarchar" MaxLength="40" />
           <Property Name="TRANGTHAI" Type="bit" />
-          <Property Name="ICON" Type="varchar(max)" />
+          <Property Name="ICON" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="MAUSAC">
           <Key>
@@ -85,10 +87,12 @@
           <Property Name="MANV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENNV" Type="nvarchar" MaxLength="35" />
           <Property Name="USERNAME" Type="varchar" MaxLength="20" />
-          <Property Name="PASSWORD" Type="varchar" MaxLength="20" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="40" />
           <Property Name="SDT" Type="nchar" MaxLength="10" />
           <Property Name="CCCD" Type="nchar" MaxLength="12" />
           <Property Name="EMAIL" Type="nchar" MaxLength="30" />
+          <Property Name="TRANGTHAI" Type="bit" />
+          <Property Name="BIGBOSS" Type="bit" />
         </EntityType>
         <EntityType Name="NHASANXUAT">
           <Key>
@@ -106,14 +110,14 @@
           <Property Name="MASP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENSP" Type="nvarchar" MaxLength="100" />
           <Property Name="DONGIA" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="HINHANH" Type="varchar(max)" />
+          <Property Name="HINHANH" Type="varchar" MaxLength="250" />
           <Property Name="TRANGTHAI" Type="bit" />
           <Property Name="MALSP" Type="int" />
           <Property Name="MANSX" Type="int" />
           <Property Name="SANPHAMMOI" Type="bit" />
           <Property Name="SPNOIBAT" Type="bit" />
-          <Property Name="CAUHINH" Type="nvarchar" MaxLength="500" />
-          <Property Name="MOTA" Type="nvarchar" MaxLength="500" />
+          <Property Name="CAUHINH" Type="nvarchar" MaxLength="250" />
+          <Property Name="MOTA" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <Association Name="FK_BINHLUAN_KHACHHANG">
           <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
@@ -298,7 +302,7 @@
             <PropertyRef Name="MABL" />
           </Key>
           <Property Name="MABL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOIDUNG" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="NOIDUNG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="MAKH" Type="Int32" />
           <Property Name="MASP" Type="Int32" />
           <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_BINHLUAN_KHACHHANG" FromRole="BINHLUAN" ToRole="KHACHHANG" />
@@ -354,12 +358,14 @@
           <Property Name="TENKH" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
           <Property Name="DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="USERNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
           <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="BINHLUAN" Relationship="Self.FK_BINHLUAN_KHACHHANG" FromRole="KHACHHANG" ToRole="BINHLUAN" />
           <NavigationProperty Name="HOADON" Relationship="Self.FK_HOADON_KHACHHANG" FromRole="KHACHHANG" ToRole="HOADON" />
+          <Property Name="NGAYSINH" Type="DateTime" Precision="3" />
+          <Property Name="TRANGTHAI" Type="Boolean" />
         </EntityType>
         <EntityType Name="LOAISANPHAM">
           <Key>
@@ -368,7 +374,7 @@
           <Property Name="MALSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENLOAISP" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="TRANGTHAI" Type="Boolean" />
-          <Property Name="ICON" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ICON" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SANPHAM" Relationship="Self.FK_SANPHAM_LOAISANPHAM" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="MAUSAC">
@@ -387,11 +393,13 @@
           <Property Name="MANV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENNV" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
           <Property Name="USERNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
           <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="HOADON" Relationship="Self.FK_HOADON_NHANVIEN" FromRole="NHANVIEN" ToRole="HOADON" />
+          <Property Name="TRANGTHAI" Type="Boolean" />
+          <Property Name="BIGBOSS" Type="Boolean" />
         </EntityType>
         <EntityType Name="NHASANXUAT">
           <Key>
@@ -410,7 +418,7 @@
           <Property Name="MASP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENSP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DONGIA" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="HINHANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="HINHANH" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="TRANGTHAI" Type="Boolean" />
           <Property Name="MALSP" Type="Int32" />
           <Property Name="MANSX" Type="Int32" />
@@ -420,8 +428,8 @@
           <NavigationProperty Name="CHITIETSP" Relationship="Self.FK_CHITIETSP_SANPHAM1" FromRole="SANPHAM" ToRole="CHITIETSP" />
           <NavigationProperty Name="LOAISANPHAM" Relationship="Self.FK_SANPHAM_LOAISANPHAM" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
           <NavigationProperty Name="NHASANXUAT" Relationship="Self.FK_SANPHAM_NHASANXUAT" FromRole="SANPHAM" ToRole="NHASANXUAT" />
-          <Property Name="CAUHINH" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="MOTA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CAUHINH" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MOTA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_BINHLUAN_KHACHHANG">
           <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
@@ -650,6 +658,8 @@
           <EntitySetMapping Name="KHACHHANG">
             <EntityTypeMapping TypeName="QLBANLAPTOPModel.KHACHHANG">
               <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
                 <ScalarProperty Name="MAKH" ColumnName="MAKH" />
                 <ScalarProperty Name="TENKH" ColumnName="TENKH" />
                 <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
@@ -683,6 +693,8 @@
           <EntitySetMapping Name="NHANVIEN">
             <EntityTypeMapping TypeName="QLBANLAPTOPModel.NHANVIEN">
               <MappingFragment StoreEntitySet="NHANVIEN">
+                <ScalarProperty Name="BIGBOSS" ColumnName="BIGBOSS" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
                 <ScalarProperty Name="MANV" ColumnName="MANV" />
                 <ScalarProperty Name="TENNV" ColumnName="TENNV" />
                 <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />

@@ -5,7 +5,11 @@
     int iDem = 0; // đếm sl sp trên trang
     int iSoLuongSPHienThi = 9;// sl sp hiển nthij trên trang
     int iTrang = 1;//số trang
-    IEnumerable<SANPHAM> lstSP = Model;
+    List<SANPHAM> lstsp = new List<SANPHAM>();
+    foreach (var item in Model)
+    {
+        lstsp.Add(item);
+    }
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
@@ -40,15 +44,12 @@
                         <div class="ml-2">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sắp xếp</button>
-                                
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        @* <button class="dropdown-item" href="#">Mới nhất</button>*@
-                                        <button type="button" class="dropdown-item" onclick="location.href='@Url.Action("SapXep", "SanPham", new { @LoaiSX = "LowHigh", @LoaiSP = lstSP})'">Giá thấp đến cao</button>
-                                        <button type="button" class="dropdown-item" onclick="location.href='@Url.Action("SapXep", "SanPham", new { @LoaiSX = "HighLow", @LoaiSP = lstSP})'">Giá cao đến thấp</button>
-                                    </div>
 
-
-
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    @* <button class="dropdown-item" href="#">Mới nhất</button>*@
+                                    <button type="button" class="dropdown-item" onclick="location.href='@Url.Action("SapXep", "SanPham", new { LoaiSX = "LowHigh",LoaiSP = lstsp})'">Giá thấp đến cao</button>
+                                    <button type="button" class="dropdown-item" onclick="location.href='@Url.Action("SapXep", "SanPham", new { LoaiSX = "HighLow",LoaiSP = lstsp})'">Giá cao đến thấp</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -123,7 +124,7 @@
         $(".pb-1").hide();
         //lây số trang từ thẻ a
         var soTrang = $(this).attr("data-SoTrang");
-        //gọi class  thuộc soTrang đó thì hiển thị
+        //gọi class thuộc soTrang đó thì hiển thị
         $("." + soTrang).show();
         $(".page-item").css({
             "z - index": "3",

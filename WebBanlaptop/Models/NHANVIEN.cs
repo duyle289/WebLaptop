@@ -27,6 +27,8 @@ namespace WebBanlaptop.Models
         public string SDT { get; set; }
         public string CCCD { get; set; }
         public string EMAIL { get; set; }
+        public bool TRANGTHAI { get; set; }
+        public bool BIGBOSS { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADON { get; set; }

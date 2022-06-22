@@ -5,7 +5,7 @@
       <PropertyRef Name="MABL" />
     </Key>
     <Property Name="MABL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NOIDUNG" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="NOIDUNG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="MAKH" Type="Int32" />
     <Property Name="MASP" Type="Int32" />
     <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_BINHLUAN_KHACHHANG" FromRole="BINHLUAN" ToRole="KHACHHANG" />
@@ -61,12 +61,14 @@
     <Property Name="TENKH" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
     <Property Name="DIACHI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="USERNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
     <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="BINHLUAN" Relationship="Self.FK_BINHLUAN_KHACHHANG" FromRole="KHACHHANG" ToRole="BINHLUAN" />
     <NavigationProperty Name="HOADON" Relationship="Self.FK_HOADON_KHACHHANG" FromRole="KHACHHANG" ToRole="HOADON" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="3" />
+    <Property Name="TRANGTHAI" Type="Boolean" />
   </EntityType>
   <EntityType Name="LOAISANPHAM">
     <Key>
@@ -75,7 +77,7 @@
     <Property Name="MALSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TENLOAISP" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <Property Name="TRANGTHAI" Type="Boolean" />
-    <Property Name="ICON" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ICON" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="SANPHAM" Relationship="Self.FK_SANPHAM_LOAISANPHAM" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
   </EntityType>
   <EntityType Name="MAUSAC">
@@ -94,11 +96,13 @@
     <Property Name="MANV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TENNV" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
     <Property Name="USERNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
     <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="HOADON" Relationship="Self.FK_HOADON_NHANVIEN" FromRole="NHANVIEN" ToRole="HOADON" />
+    <Property Name="TRANGTHAI" Type="Boolean" />
+    <Property Name="BIGBOSS" Type="Boolean" />
   </EntityType>
   <EntityType Name="NHASANXUAT">
     <Key>
@@ -117,7 +121,7 @@
     <Property Name="MASP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TENSP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="DONGIA" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="HINHANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HINHANH" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="TRANGTHAI" Type="Boolean" />
     <Property Name="MALSP" Type="Int32" />
     <Property Name="MANSX" Type="Int32" />
@@ -127,8 +131,8 @@
     <NavigationProperty Name="CHITIETSP" Relationship="Self.FK_CHITIETSP_SANPHAM1" FromRole="SANPHAM" ToRole="CHITIETSP" />
     <NavigationProperty Name="LOAISANPHAM" Relationship="Self.FK_SANPHAM_LOAISANPHAM" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
     <NavigationProperty Name="NHASANXUAT" Relationship="Self.FK_SANPHAM_NHASANXUAT" FromRole="SANPHAM" ToRole="NHASANXUAT" />
-    <Property Name="CAUHINH" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="MOTA" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CAUHINH" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MOTA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_BINHLUAN_KHACHHANG">
     <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
