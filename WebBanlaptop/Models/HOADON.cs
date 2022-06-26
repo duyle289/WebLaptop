@@ -24,9 +24,13 @@ namespace WebBanlaptop.Models
         public Nullable<System.DateTime> NGAYLAP { get; set; }
         public Nullable<System.DateTime> NGAYGIAO { get; set; }
         public Nullable<decimal> TONGTIEN { get; set; }
-        public Nullable<bool> TRANGTHAI { get; set; }
+        public Nullable<int> TRANGTHAI { get; set; }
         public Nullable<int> MANV { get; set; }
         public Nullable<int> MAKH { get; set; }
+        public string DIACHIGIAOHANG { get; set; }
+        public string YEUCAUKHAC { get; set; }
+        public string TENKH { get; set; }
+        public string SDTKH { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETHD> CHITIETHD { get; set; }

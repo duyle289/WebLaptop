@@ -4,6 +4,8 @@
     <EntitySetMapping Name="BINHLUAN">
       <EntityTypeMapping TypeName="QLBANLAPTOPModel.BINHLUAN">
         <MappingFragment StoreEntitySet="BINHLUAN">
+          <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+          <ScalarProperty Name="NGAYGUI" ColumnName="NGAYGUI" />
           <ScalarProperty Name="MABL" ColumnName="MABL" />
           <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
           <ScalarProperty Name="MAKH" ColumnName="MAKH" />
@@ -17,31 +19,6 @@
           <ScalarProperty Name="MASP" ColumnName="MASP" />
           <ScalarProperty Name="MAMAU" ColumnName="MAMAU" />
           <ScalarProperty Name="SOLUONGTON" ColumnName="SOLUONGTON" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CHITIETHD">
-      <EntityTypeMapping TypeName="QLBANLAPTOPModel.CHITIETHD">
-        <MappingFragment StoreEntitySet="CHITIETHD">
-          <ScalarProperty Name="MASP" ColumnName="MASP" />
-          <ScalarProperty Name="MAMAU" ColumnName="MAMAU" />
-          <ScalarProperty Name="MAHD" ColumnName="MAHD" />
-          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
-          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
-          <ScalarProperty Name="DIACHIGIAOHANG" ColumnName="DIACHIGIAOHANG" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="HOADON">
-      <EntityTypeMapping TypeName="QLBANLAPTOPModel.HOADON">
-        <MappingFragment StoreEntitySet="HOADON">
-          <ScalarProperty Name="MAHD" ColumnName="MAHD" />
-          <ScalarProperty Name="NGAYLAP" ColumnName="NGAYLAP" />
-          <ScalarProperty Name="NGAYGIAO" ColumnName="NGAYGIAO" />
-          <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
-          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
-          <ScalarProperty Name="MANV" ColumnName="MANV" />
-          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -119,6 +96,58 @@
           <ScalarProperty Name="MANSX" ColumnName="MANSX" />
           <ScalarProperty Name="SANPHAMMOI" ColumnName="SANPHAMMOI" />
           <ScalarProperty Name="SPNOIBAT" ColumnName="SPNOIBAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIETHD">
+      <EntityTypeMapping TypeName="QLBANLAPTOPModel.CHITIETHD">
+        <MappingFragment StoreEntitySet="CHITIETHD">
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+          <ScalarProperty Name="MAHD" ColumnName="MAHD" />
+          <ScalarProperty Name="MAMAU" ColumnName="MAMAU" />
+          <ScalarProperty Name="MASP" ColumnName="MASP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOADON">
+      <EntityTypeMapping TypeName="QLBANLAPTOPModel.HOADON">
+        <MappingFragment StoreEntitySet="HOADON">
+          <ScalarProperty Name="SDTKH" ColumnName="SDTKH" />
+          <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+          <ScalarProperty Name="YEUCAUKHAC" ColumnName="YEUCAUKHAC" />
+          <ScalarProperty Name="DIACHIGIAOHANG" ColumnName="DIACHIGIAOHANG" />
+          <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+          <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+          <ScalarProperty Name="NGAYGIAO" ColumnName="NGAYGIAO" />
+          <ScalarProperty Name="NGAYLAP" ColumnName="NGAYLAP" />
+          <ScalarProperty Name="MAHD" ColumnName="MAHD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GOPY">
+      <EntityTypeMapping TypeName="QLBANLAPTOPModel.GOPY">
+        <MappingFragment StoreEntitySet="GOPY">
+          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+          <ScalarProperty Name="NGAYGUI" ColumnName="NGAYGUI" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+          <ScalarProperty Name="TEN" ColumnName="TEN" />
+          <ScalarProperty Name="MAGOPY" ColumnName="MAGOPY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINTUC">
+      <EntityTypeMapping TypeName="QLBANLAPTOPModel.TINTUC">
+        <MappingFragment StoreEntitySet="TINTUC">
+          <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+          <ScalarProperty Name="HINHTT" ColumnName="HINHTT" />
+          <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+          <ScalarProperty Name="TENTT" ColumnName="TENTT" />
+          <ScalarProperty Name="MATT" ColumnName="MATT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

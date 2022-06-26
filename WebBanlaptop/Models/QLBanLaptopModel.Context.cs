@@ -27,13 +27,15 @@ namespace WebBanlaptop.Models
     
         public virtual DbSet<BINHLUAN> BINHLUAN { get; set; }
         public virtual DbSet<CHITIETSP> CHITIETSP { get; set; }
-        public virtual DbSet<CHITIETHD> CHITIETHD { get; set; }
-        public virtual DbSet<HOADON> HOADON { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANG { get; set; }
         public virtual DbSet<LOAISANPHAM> LOAISANPHAM { get; set; }
         public virtual DbSet<MAUSAC> MAUSAC { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIEN { get; set; }
         public virtual DbSet<NHASANXUAT> NHASANXUAT { get; set; }
         public virtual DbSet<SANPHAM> SANPHAM { get; set; }
+        public virtual DbSet<CHITIETHD> CHITIETHD { get; set; }
+        public virtual DbSet<HOADON> HOADON { get; set; }
+        public virtual DbSet<GOPY> GOPY { get; set; }
+        public virtual DbSet<TINTUC> TINTUC { get; set; }
     }
 }
