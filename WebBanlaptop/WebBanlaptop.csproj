@@ -148,6 +148,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -157,10 +158,14 @@
     <Compile Include="Models\BINHLUAN.cs">
       <DependentUpon>QLBanLaptopModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\CHITIETHD.cs">
       <DependentUpon>QLBanLaptopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CHITIETSP.cs">
+      <DependentUpon>QLBanLaptopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GOPY.cs">
       <DependentUpon>QLBanLaptopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HOADON.cs">
@@ -197,6 +202,9 @@
       <DependentUpon>QLBanLaptopModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\SANPHAM.cs">
+      <DependentUpon>QLBanLaptopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TINTUC.cs">
       <DependentUpon>QLBanLaptopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -265,6 +273,7 @@
     <Content Include="Content\HinhAnhSP\dell-vostro-3510-i5.jpg" />
     <Content Include="Content\HinhAnhSP\dell-xps-13-9310-i5.jpg" />
     <Content Include="Content\HinhAnhSP\dell-xps-17-9710-i7.jpg" />
+    <Content Include="Content\HinhAnhSP\fast-delivery.png" />
     <Content Include="Content\HinhAnhSP\gaming-1.jpg" />
     <Content Include="Content\HinhAnhSP\gaming-2.jpg" />
     <Content Include="Content\HinhAnhSP\gaming-3.jpg" />
@@ -2106,6 +2115,8 @@
       <DependentUpon>QLBanLaptopModel.edmx</DependentUpon>
       <LastGenOutput>QLBanLaptopModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\user.js" />
+    <Content Include="Scripts\admin.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\lib\owlcarousel\LICENSE" />
@@ -2503,6 +2514,12 @@
     <Content Include="Views\Layout\_AdminLayout.cshtml" />
     <Content Include="Views\User\QuenMK.cshtml" />
     <Content Include="Views\User\XacNhanGoiMK.cshtml" />
+    <Content Include="Views\Admin\ListUser.cshtml" />
+    <Content Include="Views\Cart\_CartPartial.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
+    <Content Include="Views\Cart\enmtyCart.cshtml" />
+    <Content Include="Views\Cart\XacNhanDatHang.cshtml" />
+    <Content Include="Views\SanPham\showReview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

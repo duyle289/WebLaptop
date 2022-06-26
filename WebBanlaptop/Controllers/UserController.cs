@@ -15,6 +15,7 @@ namespace WebBanlaptop.Controllers
     {
         QLBANLAPTOPEntities db = new QLBANLAPTOPEntities();
         private static string urlAfterLogin; // lưu lại link đang ở trước khi nhấn đăng nhập
+        private static string urlAfterForgot;
         #region MD5
         public static string MD5Hash(string input)
         {
@@ -134,13 +135,15 @@ namespace WebBanlaptop.Controllers
 
         #region quên mật khẩu
 
-        public ActionResult XacNhanGoiMK()
+        public ActionResult XacNhanGoiMK(string urlAfterForgot)
         {
+            ViewBag.url = urlAfterForgot;
             return PartialView();
         }
         [HttpGet]
-        public ActionResult QuenMK()
+        public ActionResult QuenMK(string strUrl)
         {
+            urlAfterForgot = strUrl;
             return View();
         }
         [HttpPost]
@@ -186,7 +189,7 @@ namespace WebBanlaptop.Controllers
                         throw raise;
                     }
 
-                    return RedirectToAction("XacNhanGoiMK");
+                    return RedirectToAction("XacNhanGoiMK","User", urlAfterForgot);
                 }
             }
             return View();
@@ -206,6 +209,8 @@ namespace WebBanlaptop.Controllers
             return finalString;
         }
         #endregion
+
+
         #region đăng nhập
         [HttpGet]
         public ActionResult Login(string strURL)
@@ -228,7 +233,12 @@ namespace WebBanlaptop.Controllers
             var username = collection["username"];
             var password = collection["password"];
             var user = db.KHACHHANG.SingleOrDefault(p => p.USERNAME == username);
-            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
+            if (!user.TRANGTHAI) 
+            {
+                ViewData["Error"] = "Tài khoản này đã bị tạm khóa. Vui lòng liên hệ với chúng tôi để được kích hoạt lại!!!";
+                return this.Login(urlAfterLogin);
+            }
+            else if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
             {
                 ViewData["Error"] = "Vui lòng điền đầy đủ nội dung";
                 return this.Login(urlAfterLogin);
@@ -250,6 +260,8 @@ namespace WebBanlaptop.Controllers
             }
         }
         #endregion
+
+
         #region đăng xuất
         public ActionResult LogOut() // đăng xuất
         {

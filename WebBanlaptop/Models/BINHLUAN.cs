@@ -18,6 +18,8 @@ namespace WebBanlaptop.Models
         public string NOIDUNG { get; set; }
         public Nullable<int> MAKH { get; set; }
         public Nullable<int> MASP { get; set; }
+        public Nullable<System.DateTime> NGAYGUI { get; set; }
+        public string TENKH { get; set; }
     
         public virtual KHACHHANG KHACHHANG { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }

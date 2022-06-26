@@ -12,15 +12,13 @@ namespace WebBanlaptop.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CHITIETHD
+    public partial class TINTUC
     {
-        public int? MASP { get; set; }
-        public int? MAMAU { get; set; }
-        public int MAHD { get; set; }
-        public Nullable<int> SOLUONG { get; set; }
-        public Nullable<decimal> DONGIA { get; set; }
-    
-        public virtual CHITIETSP CHITIETSP { get; set; }
-        public virtual HOADON HOADON { get; set; }
+        public int MATT { get; set; }
+        public string TENTT { get; set; }
+        public string MOTA { get; set; }
+        public string HINHTT { get; set; }
+        public string NOIDUNG { get; set; }
+        public Nullable<bool> TRANGTHAI { get; set; }
     }
 }

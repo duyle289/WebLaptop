@@ -90,7 +90,7 @@ namespace WebBanlaptop.Controllers
         #endregion
 
         #region phần admins
-        public ActionResult ListAdmin(int? page)
+        public ActionResult ListAdmin()
         {
             QLBANLAPTOPEntities db = new QLBANLAPTOPEntities();
             if (!checkLogin()) return RedirectToAction("Login");
@@ -276,7 +276,49 @@ namespace WebBanlaptop.Controllers
         #endregion
 
         #region phần users
+        public ActionResult ListUser()
+        {
+            QLBANLAPTOPEntities db = new QLBANLAPTOPEntities();
+            if (!checkLogin()) return RedirectToAction("Login");
+            List<KHACHHANG> listUser = db.KHACHHANG.ToList();
+            ViewBag.lstkh = listUser;
+            return View();
+        }
+        public JsonResult LockOrUnlockUser(string id)
+        {
+            bool lockOrUnlock = true; // khóa hay mở khóa tài khoản (true: khóa, false: mở khóa)
+            QLBANLAPTOPEntities db = new QLBANLAPTOPEntities();
+            var user = db.KHACHHANG.Single(p => p.USERNAME.Equals(id));
+            bool Status = false;
+            string err = string.Empty;
+            if (user != null)
+            {
+                if (user.TRANGTHAI) user.TRANGTHAI = false; // nếu đang hoạt động thì khóa
+                else
+                {
+                    user.TRANGTHAI = true;
+                    lockOrUnlock = false; // mở khóa tài khoản
+                }
 
+                try
+                {
+                    db.SaveChanges();
+                    Status = true;
+                }
+                catch (Exception ex)
+                {
+                    err = ex.Message;
+                }
+            }
+
+            return Json(new
+            {
+                status = Status,
+                errorMessage = err,
+                lockStatus = lockOrUnlock
+            });
+
+        }
         #endregion
     }
 }

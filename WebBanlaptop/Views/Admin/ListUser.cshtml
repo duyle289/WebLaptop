@@ -1,9 +1,9 @@
 ﻿@using WebBanlaptop.Models;
 @{
 
-    ViewBag.Title = "ListAdmin";
+    ViewBag.Title = "ListUser";
     Layout = "~/Views/Layout/_AdminLayout.cshtml";
-    IEnumerable<NHANVIEN> lstnv = (IEnumerable<NHANVIEN>)ViewBag.lstnv;
+    IEnumerable<KHACHHANG> lstkh = (IEnumerable<KHACHHANG>)ViewBag.lstkh;
     int iDem = 0; // đếm sl sp trên trang
     int iSoLuongSPHienThi = 5;// sl nv hiển nthij trên trang
     int iTrang = 1;//số trang
@@ -21,13 +21,13 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Danh sách Admin</h1>
+    <h1 class="h3 mb-2 text-gray-800">Danh sách khách hàng</h1>
     <!-- DataTales Example -->
     @if (iNV.BIGBOSS)
     {
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <button type="button" class="btn btn-info create-admin" onclick="location.href='@Url.Action("addAdmin", "Admin")'">Tạo Tài Khoản</button>
+                
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -46,14 +46,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in lstnv)
+                                    @foreach (var item in lstkh)
                                     {
                                         if (iDem % iSoLuongSPHienThi == 0 && iDem != 0)
                                         {
                                             iTrang++;
                                         }
                                         <tr id="show" class="@Url.Content("odd Trang" + iTrang.ToString())">
-                                            <td class="sorting_1">@item.TENNV</td>
+                                            <td class="sorting_1">@item.TENKH</td>
                                             <td>@item.EMAIL</td>
                                             <td>@item.SDT</td>
                                             <td>@item.CCCD</td>
@@ -69,19 +69,16 @@
 
 
                                             <td class="invert">
-                                                <abbr title="Đổi Mật Khẩu">
-                                                    <button type="button" class="btn btn-info modal-change-password" onclick="location.href='@Url.Action("changePWAdmin", "Admin",new { id = item.MANV, type=true})'"><i class="fa fa-pen" aria-hidden="true"></i></button>
-                                                </abbr>
                                                 @if (item.TRANGTHAI)
                                                 {
                                                     <abbr title="Khóa Tài Khoản">
-                                                        <button type="button" class="btn btn-danger modal-lock-admin" data-toggle="modal" data-target="#lockAccount" data-account="@item.USERNAME" data-accountName="@item.TENNV"><i class="fa fa-lock" aria-hidden="true"></i></button>
+                                                        <button type="button" class="btn btn-danger modal-lock-user" data-toggle="modal" data-target="#lockAccount" data-account="@item.USERNAME" data-accountName="@item.TENKH"><i class="fa fa-lock" aria-hidden="true"></i></button>
                                                     </abbr>
                                                 }
                                                 else
                                                 {
                                                     <abbr title="Mở Khóa Tài Khoản">
-                                                        <button type="button" class="btn btn-danger modal-lock-admin" data-toggle="modal" data-target="#lockAccount" data-account="@item.USERNAME" data-accountName="@item.TENNV"><i class="fa fa-unlock" aria-hidden="true"></i></button>
+                                                        <button type="button" class="btn btn-danger modal-lock-user" data-toggle="modal" data-target="#lockAccount" data-account="@item.USERNAME" data-accountName="@item.TENKH"><i class="fa fa-unlock" aria-hidden="true"></i></button>
                                                     </abbr>
                                                 }
 
@@ -139,14 +136,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in lstnv)
+                                    @foreach (var item in lstkh)
                                     {
                                         if (iDem % iSoLuongSPHienThi == 0 && iDem != 0)
                                         {
                                             iTrang++;
                                         }
                                         <tr id="show" class="@Url.Content("odd Trang" + iTrang.ToString())">
-                                            <td class="sorting_1">@item.TENNV</td>
+                                            <td class="sorting_1">@item.TENKH</td>
                                             <td>@item.EMAIL</td>
                                             <td>@item.SDT</td>
                                             <td>@item.CCCD</td>
@@ -163,7 +160,6 @@
                                         iDem++;
                                     }
                                 </tbody>
-
                             </table>
                         </div>
                     </div>
@@ -210,7 +206,7 @@
             <input type="hidden" id="hiddenAccount" value="0" />
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-success " id="btn-lock-admin">
+                <button type="button" class="btn btn-success " id="btn-lock-user">
                     Xác nhận
                 </button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>

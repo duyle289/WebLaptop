@@ -126,6 +126,35 @@ namespace WebBanlaptop.Controllers
             }
             return View(sp);
         }
+        [HttpPost]
+        public ActionResult Review(int? id,FormCollection f, string strUrl)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            KHACHHANG kh = (KHACHHANG)Session["User"];
+            if (Session["User"] == null || Session["User"].ToString() == "")
+                return RedirectToAction("Login", "User", new { @strURL = strUrl }); // truyền url để lưu trang web quay về sau khi login
+            BINHLUAN bl = new BINHLUAN();
+            bl.MASP = id;
+            bl.MAKH = kh.MAKH;
+            bl.NGAYGUI = DateTime.Now;
+            bl.NOIDUNG = f["noidung"].ToString();
+            bl.TENKH = kh.TENKH;
+            db.BINHLUAN.Add(bl);
+            db.SaveChanges();
+            return Redirect(strUrl);
+        }
+        public ActionResult showReview(int? id, string strUrl)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var bl = db.BINHLUAN.Where(n => n.MASP == id).ToList();
+            return PartialView(bl);
+        }
 
     }
 }
